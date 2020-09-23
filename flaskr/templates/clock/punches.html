@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Lista de Pontos{% endblock %}</h1>
+{% endblock %} {% block content %}
+<div>
+  <p><b>Usuário ID: </b> {{ user_id }}</p>
+</div>
+{% for punch in punches %}
+<article class="post">
+  <header>
+    <div>{% if punch["exit_type"] %} Saída {% else %} Entrada {% endif %}</div>
+    <div>{{ punch["time"] }}</div>
+  </header>
+</article>
+{% if not loop.last %}
+<hr />
+{% endif %} {% endfor %}
+<br />
+<div><b>Total:</b> {{ total_hours }}</div>
+{% endblock %}

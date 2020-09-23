@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Usuário ID: "{{ user["id"] }}"{% endblock %}</h1>
+{% endblock %} {% block content %}
+<form method="post">
+  <label for="title">Nome</label>
+  <input
+    name="full_name"
+    id="full_name"
+    value="{{ request.form['full_name'] or user['full_name'] }}"
+    required
+  />
+  <input
+    name="email"
+    id="email"
+    value="{{ request.form['email'] or user['email'] }}"
+    required
+  />
+  <input
+    name="cpf"
+    id="cpf"
+    value="{{ request.form['cpf'] or user['cpf'] }}"
+    required
+  />
+  <input class="update" type="submit" value="Atualizar" />
+</form>
+<hr />
+{% endblock %}

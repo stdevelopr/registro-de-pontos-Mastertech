@@ -1,0 +1,13 @@
+<!-- <p><b>Email: </b> {{ user["email"] }}</p>
+<p><b>CPF: </b> {{ user["cpf"] }}</p> -->
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Usuário ID: "{{ user["id"] }}"{% endblock %}</h1>
+{% endblock %} {% block content %}
+<div>
+  <p><b>Nome:</b> {{ user["full_name"] }}</p>
+  <p><b>Email: </b> {{ user["email"] }}</p>
+  <p><b>CPF: </b> {{ user["cpf"] }}</p>
+</div>
+<a class="action" href="{{ url_for('users.edit_user', id=user['id']) }}"
+  >Editar informações</a
+>{% endblock %}

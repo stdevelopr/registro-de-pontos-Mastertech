@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %} {% block content %}
+<form method="post">
+  <label for="full_name">Nome Completo</label>
+  <input name="full_name" id="full_name" required />
+
+  <label for="cpf">CPF</label>
+  <input name="cpf" id="cpf" />
+
+  <label for="email">Email</label>
+  <input name="email" id="email" />
+
+  <input type="submit" value="Register" />
+</form>
+{% endblock %}

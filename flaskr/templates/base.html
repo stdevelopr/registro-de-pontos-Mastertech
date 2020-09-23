@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %} - MasterTech</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<nav>
+  <h1>Controle</h1>
+  <ul>
+    <li><a href="{{ url_for('users.get_all') }}">Todos Usuários</a></li>
+    <li><a href="{{ url_for('users.register') }}">Registrar usuário</a></li>
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>

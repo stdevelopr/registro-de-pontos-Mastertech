@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}Lista de usuários{% endblock %}</h1>
+{% endblock %} {% block content %} {% for user in users %}
+<article class="post">
+  <header>
+    <div>
+      <p><b>ID: </b> {{ user["id"] }}</p>
+      <p><b>Nome: </b> {{ user["full_name"] }}</p>
+    </div>
+    <a class="action" href="{{ url_for('users.user_info', id=user['id']) }}"
+      >Ver informações</a
+    >
+    <a
+      class="action"
+      href="{{ url_for('clock.get_punches', user_id=user['id']) }}"
+      >Ver pontos</a
+    >
+
+    <form
+      action="{{ url_for('clock.punch', user_id=user['id']) }}"
+      method="post"
+    >
+      <input
+        class="danger"
+        type="submit"
+        value="Registrar Ponto"
+        onclick="return alert('Registrado!');"
+      />
+    </form>
+  </header>
+</article>
+{% if not loop.last %}
+<hr />
+{% endif %} {% endfor %} {% endblock %}
