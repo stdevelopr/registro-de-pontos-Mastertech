@@ -10,8 +10,9 @@ Exportar a variável de ambinte:
 
 - export FLASK_APP=flaskr
 
-Gerar o banco de dados:
 
+Gerar o banco de dados:
+*** Caso realize o clone deste repositório esse passo já está feito e o banco de dados encontra-se na pasta instance.
 - flask db init
 - flask db migrate -m "Initial migration."
 - flask db upgrade
